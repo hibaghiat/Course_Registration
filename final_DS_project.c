@@ -17,7 +17,7 @@ typedef struct tag {
   struct tag *next;
 } node;
 
-void menu(void) { // GOOD
+void menu(void) { 
   printf("\n\n\t\t---------- Course Registration | CSC 5322 ---------\n");
   printf("\n\t\t Please choose one option:\n");
   printf("\n\t\t\t1. Start the Program.\n");
@@ -112,11 +112,8 @@ int construct_heap(student_info max_heap[], FILE *infp) {
     fgets(max_heap[i].s_name, 19, infp);
     L = strlen(max_heap[i].s_name);
     max_heap[i].s_name[L - 1] = '\0';
-    //printf("TEST: %s\n", max_heap[i].s_name);
     fscanf(infp, "%d\n", &max_heap[i].s_id);
-    //printf("TEST: %d\n", max_heap[i].s_id);
     fgets(reason, 60, infp);
-    //printf("TEST: %s\n", reason);
     if (strncmp(reason, "I want to take this course as an elective", 40) == 0)
       max_heap[i].s_priority = 1;
     else if (strncmp(reason, "The course description seems interesting", 41) ==
