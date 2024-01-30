@@ -5,13 +5,13 @@
 #define size 10
 #define size_2 15
 
-typedef struct { // GOOD
+typedef struct { 
   char s_name[30];
   int s_id;
   int s_priority;
 } student_info;
 
-typedef struct tag { // GOOD
+typedef struct tag { 
   char s_name[50];
   int s_id;
   struct tag *next;
@@ -25,10 +25,10 @@ void menu(void) { // GOOD
   printf("\n\t\t\t3. Drop the Course.\n");
   printf("\n\t\t\t4. Print Special Request List (sorted).\n");
   printf("\n\t\t\t5. Special Request Process is OVER\n");
-  printf("\n\t\t\t\t-| Your choise please: ");
+  printf("\n\t\t\t\t-| Your choice please: ");
 }
 
-node* add_student_LL(node*head, node*ToAdd){ //GOOD
+node* add_student_LL(node*head, node*ToAdd){ 
   node* walker;
   if(head==NULL)
     head=ToAdd;
@@ -41,7 +41,7 @@ node* add_student_LL(node*head, node*ToAdd){ //GOOD
 return(head);
 }
 
-void Traversal_test(node*head){  //TEST
+void Traversal_test(node*head){  
   node*walker=head;
   while(walker->next!=NULL){
     printf("Test %d %s\n",walker->s_id,walker->s_name);
@@ -49,7 +49,7 @@ void Traversal_test(node*head){  //TEST
   }
 }
 
-node *load_CSC5322(node *head, FILE *infp, int *student_IN_LL) { //Problem: 11 students
+node *load_CSC5322(node *head, FILE *infp, int *student_IN_LL) { 
 
   node *new_node;
   int i = 0, L;
@@ -67,21 +67,21 @@ node *load_CSC5322(node *head, FILE *infp, int *student_IN_LL) { //Problem: 11 s
   return head;
 }
 
-int max_element_index(student_info max_heap[], int index_1, int index_2) { //GOOD
+int max_element_index(student_info max_heap[], int index_1, int index_2) { 
   if (max_heap[index_1].s_priority > max_heap[index_2].s_priority)
     return index_1;
   else
   return index_2;
 }
 
-void swap(student_info *A, student_info *B) { //GOOD
+void swap(student_info *A, student_info *B) { 
   student_info temp;
   temp = *A;
   *A = *B;
   *B= temp;
 }
 
-void heapfiy(student_info max_heap[], int parent_index, int last_index) {//GOOD
+void heapfiy(student_info max_heap[], int parent_index, int last_index) {
   int left_index, right_index, max_index;
   if (parent_index > (last_index - 1) / 2)
     return;
@@ -102,7 +102,7 @@ void heapfiy(student_info max_heap[], int parent_index, int last_index) {//GOOD
   }
 }
 
-int construct_heap(student_info max_heap[], FILE *infp) { //Some priorities are not correct
+int construct_heap(student_info max_heap[], FILE *infp) { 
   int n_student, last_index, i = 0, L;
   char reason[60];
   char line[60];
@@ -136,7 +136,7 @@ int construct_heap(student_info max_heap[], FILE *infp) { //Some priorities are 
   return n_student;
 }
 
-student_info create_student_toadd(void) { //GOOD
+student_info create_student_toadd(void) {
   student_info new_student;
   getchar();
   printf("\n\t\t Enter Name: ");
@@ -152,7 +152,7 @@ student_info create_student_toadd(void) { //GOOD
   return new_student;
 }
 
-int add_new_student_toheap(student_info max_heap[], student_info student_toadd,int *student_IN_MX) { //GOOD
+int add_new_student_toheap(student_info max_heap[], student_info student_toadd,int *student_IN_MX) {
   int index;
   if (*student_IN_MX == size)
     return 0;
@@ -169,7 +169,7 @@ else{
   }
 }
 
-node* delete_node(node* head, int id, int* status){ //GOOD
+node* delete_node(node* head, int id, int* status){ 
 
     node* walker, *temp;
     *status = 0;
